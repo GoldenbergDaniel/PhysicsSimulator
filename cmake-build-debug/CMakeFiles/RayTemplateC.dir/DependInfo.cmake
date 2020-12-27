@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/dg/Dev/Game/RayTemplateC/Engine/game.c" "/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles/RayTemplateC.dir/Engine/game.c.o"
+  "/Users/dg/Dev/Game/RayTemplateC/Engine/Game/game.c" "/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o"
   "/Users/dg/Dev/Game/RayTemplateC/Engine/main.c" "/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles/RayTemplateC.dir/Engine/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

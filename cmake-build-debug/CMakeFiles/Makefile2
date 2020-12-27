@@ -73,7 +73,7 @@ CMAKE_BINARY_DIR = /Users/dg/Dev/Game/RayTemplateC/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Game.dir/all
+all: CMakeFiles/RayTemplateC.dir/all
 
 .PHONY : all
 
@@ -83,36 +83,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Game.dir/clean
+clean: CMakeFiles/RayTemplateC.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Game.dir
+# Target rules for target CMakeFiles/RayTemplateC.dir
 
 # All Build rule for target.
-CMakeFiles/Game.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Game"
-.PHONY : CMakeFiles/Game.dir/all
+CMakeFiles/RayTemplateC.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target RayTemplateC"
+.PHONY : CMakeFiles/RayTemplateC.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Game.dir/rule: cmake_check_build_system
+CMakeFiles/RayTemplateC.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Game.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RayTemplateC.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/Game.dir/rule
+.PHONY : CMakeFiles/RayTemplateC.dir/rule
 
 # Convenience name for target.
-Game: CMakeFiles/Game.dir/rule
+RayTemplateC: CMakeFiles/RayTemplateC.dir/rule
 
-.PHONY : Game
+.PHONY : RayTemplateC
 
 # clean rule for target.
-CMakeFiles/Game.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/clean
-.PHONY : CMakeFiles/Game.dir/clean
+CMakeFiles/RayTemplateC.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/clean
+.PHONY : CMakeFiles/RayTemplateC.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

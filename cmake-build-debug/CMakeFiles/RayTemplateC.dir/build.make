@@ -90,29 +90,29 @@ CMakeFiles/RayTemplateC.dir/Engine/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/RayTemplateC.dir/Engine/main.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dg/Dev/Game/RayTemplateC/Engine/main.c -o CMakeFiles/RayTemplateC.dir/Engine/main.c.s
 
-CMakeFiles/RayTemplateC.dir/Engine/game.c.o: CMakeFiles/RayTemplateC.dir/flags.make
-CMakeFiles/RayTemplateC.dir/Engine/game.c.o: ../Engine/game.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/RayTemplateC.dir/Engine/game.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/RayTemplateC.dir/Engine/game.c.o   -c /Users/dg/Dev/Game/RayTemplateC/Engine/game.c
+CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o: CMakeFiles/RayTemplateC.dir/flags.make
+CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o: ../Engine/Game/game.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/dg/Dev/Game/RayTemplateC/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o   -c /Users/dg/Dev/Game/RayTemplateC/Engine/Game/game.c
 
-CMakeFiles/RayTemplateC.dir/Engine/game.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/RayTemplateC.dir/Engine/game.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dg/Dev/Game/RayTemplateC/Engine/game.c > CMakeFiles/RayTemplateC.dir/Engine/game.c.i
+CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/dg/Dev/Game/RayTemplateC/Engine/Game/game.c > CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.i
 
-CMakeFiles/RayTemplateC.dir/Engine/game.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/RayTemplateC.dir/Engine/game.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dg/Dev/Game/RayTemplateC/Engine/game.c -o CMakeFiles/RayTemplateC.dir/Engine/game.c.s
+CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/dg/Dev/Game/RayTemplateC/Engine/Game/game.c -o CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.s
 
 # Object files for target RayTemplateC
 RayTemplateC_OBJECTS = \
 "CMakeFiles/RayTemplateC.dir/Engine/main.c.o" \
-"CMakeFiles/RayTemplateC.dir/Engine/game.c.o"
+"CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o"
 
 # External object files for target RayTemplateC
 RayTemplateC_EXTERNAL_OBJECTS =
 
 RayTemplateC: CMakeFiles/RayTemplateC.dir/Engine/main.c.o
-RayTemplateC: CMakeFiles/RayTemplateC.dir/Engine/game.c.o
+RayTemplateC: CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o
 RayTemplateC: CMakeFiles/RayTemplateC.dir/build.make
 RayTemplateC: /usr/local/Cellar/raylib/3.5.0/lib/libraylib.dylib
 RayTemplateC: CMakeFiles/RayTemplateC.dir/link.txt

@@ -131,17 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Game
+# Target rules for targets named RayTemplateC
 
 # Build rule for target.
-Game: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Game
-.PHONY : Game
+RayTemplateC: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RayTemplateC
+.PHONY : RayTemplateC
 
 # fast build rule for target.
-Game/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/build
-.PHONY : Game/fast
+RayTemplateC/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/build
+.PHONY : RayTemplateC/fast
 
 Engine/Game/game.o: Engine/Game/game.c.o
 
@@ -149,7 +149,7 @@ Engine/Game/game.o: Engine/Game/game.c.o
 
 # target to build an object file
 Engine/Game/game.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/Game/game.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.o
 .PHONY : Engine/Game/game.c.o
 
 Engine/Game/game.i: Engine/Game/game.c.i
@@ -158,7 +158,7 @@ Engine/Game/game.i: Engine/Game/game.c.i
 
 # target to preprocess a source file
 Engine/Game/game.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/Game/game.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.i
 .PHONY : Engine/Game/game.c.i
 
 Engine/Game/game.s: Engine/Game/game.c.s
@@ -167,7 +167,7 @@ Engine/Game/game.s: Engine/Game/game.c.s
 
 # target to generate assembly for a file
 Engine/Game/game.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/Game/game.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/Game/game.c.s
 .PHONY : Engine/Game/game.c.s
 
 Engine/main.o: Engine/main.c.o
@@ -176,7 +176,7 @@ Engine/main.o: Engine/main.c.o
 
 # target to build an object file
 Engine/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/main.c.o
 .PHONY : Engine/main.c.o
 
 Engine/main.i: Engine/main.c.i
@@ -185,7 +185,7 @@ Engine/main.i: Engine/main.c.i
 
 # target to preprocess a source file
 Engine/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/main.c.i
 .PHONY : Engine/main.c.i
 
 Engine/main.s: Engine/main.c.s
@@ -194,7 +194,7 @@ Engine/main.s: Engine/main.c.s
 
 # target to generate assembly for a file
 Engine/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/Engine/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RayTemplateC.dir/build.make CMakeFiles/RayTemplateC.dir/Engine/main.c.s
 .PHONY : Engine/main.c.s
 
 # Help Target
@@ -205,7 +205,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Game"
+	@echo "... RayTemplateC"
 	@echo "... Engine/Game/game.o"
 	@echo "... Engine/Game/game.i"
 	@echo "... Engine/Game/game.s"
