@@ -1,7 +1,7 @@
-#include "Game/game_time.h"
-
 #include "raylib.h"
-#include "Game/game.h"
+
+#include "game.h"
+#include "game_time.h"
 
 #include "Utility/init.h"
 

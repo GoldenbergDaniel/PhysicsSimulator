@@ -1,5 +1,5 @@
-#ifndef PRACTICEGAME_GAME_H
-#define PRACTICEGAME_GAME_H
+#ifndef RAYTEMPLATEC_GAME_H
+#define RAYTEMPLATEC_GAME_H
 
 #include "game_time.h"
 
