@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
-project(RayTemplateC)
+project(PhysicsSimulator)
 
 find_package(raylib 3.5 QUIET)
 

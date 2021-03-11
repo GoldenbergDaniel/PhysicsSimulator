@@ -10,6 +10,7 @@
 int main()
 {
     SetConfigFlags(FLAG_VSYNC_HINT);
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI);
     InitWindow(WIDTH, HEIGHT, TITLE);
 
     start();
