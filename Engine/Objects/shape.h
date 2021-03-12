@@ -1,13 +1,13 @@
 #ifndef PHYSICSSIMULATOR_CIRCLE_H
 #define PHYSICSSIMULATOR_CIRCLE_H
 
-typedef struct Circle
+typedef struct Shape
 {
     Vector2 position;
     Vector2 velocity;
     Vector2 acceleration;
-    float radius;
     float mass;
-} Circle;
+    float radius;
+} Shape;
 
 #endif

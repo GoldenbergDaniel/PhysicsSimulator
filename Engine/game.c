@@ -1,14 +1,14 @@
 #include "raylib.h"
 #include "game_time.h"
 
-#include "./Objects/circle.h"
 #include "./Utility/init.h"
+#include "./Objects/shape.h"
 
-const float gravity = (float) -9.81 * 2;
+const float gravity = (float) -9.81*2;
 
-Circle *circle = &(Circle) {ZERO, ZERO, ZERO, 15, 1};
+Shape *circle = &(Shape) {ZERO, ZERO, ZERO, 1, 15};
 
-Vector2 netExternalForces = (Vector2) {300, 200};
+Vector2 netExternalForces = (Vector2) {300, 0};
 
 void start()
 {
@@ -17,25 +17,34 @@ void start()
 
 void update(GameTime *gameTime)
 {
-    circle->acceleration.x = (netExternalForces.x / circle->mass);
-    circle->acceleration.y = -((netExternalForces.y / circle->mass) + gravity);
-
-    netExternalForces = ZERO;
-
-    if (circle->position.y + circle->velocity.y * gameTime->deltaTime < HEIGHT - circle->radius / 2)
+    if (gameTime->totalElapsedTime > 0.5)
     {
-        circle->velocity.x += circle->acceleration.x;
-        circle->velocity.y += circle->acceleration.y;
+        circle->acceleration.x = (netExternalForces.x / circle->mass);
+        circle->acceleration.y = -((netExternalForces.y / circle->mass) + gravity);
 
-        circle->position.y += circle->velocity.y * gameTime->deltaTime;
+        netExternalForces = ZERO;
+
+        if (circle->position.y + (circle->velocity.y + circle->acceleration.y) * gameTime->deltaTime <= HEIGHT - circle->radius)
+        {
+            circle->velocity.y += circle->acceleration.y;
+            circle->position.y += circle->velocity.y * gameTime->deltaTime;
+        }
+
+        if (circle->position.x + (circle->velocity.x + circle->acceleration.x) * gameTime->deltaTime <= WIDTH - circle->radius)
+        {
+            circle->velocity.x += circle->acceleration.x;
+            circle->position.x += circle->velocity.x * gameTime->deltaTime;
+        }
     }
-
-    circle->position.x += circle->velocity.x * gameTime->deltaTime;
 }
 
 void draw()
 {
+    DrawRectangleV((Vector2) {0, HEIGHT-25}, (Vector2) {WIDTH, 50}, COLOR_BLACK);
+
     DrawCircleV(circle->position, circle->radius, COLOR_BLUE);
+
+    DrawText(TextFormat("%.00f", circle->acceleration.y), WIDTH-50, 50, 20, COLOR_BLACK);
 
     ClearBackground(COLOR_WHITE);
 }
