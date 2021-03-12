@@ -2,9 +2,10 @@
 #define EXAMPLE_COLOR_H
 
 #define TITLE "Physics Simulator"
-#define WIDTH 800
-#define HEIGHT 450
+#define WIDTH (float) 800
+#define HEIGHT (float) 450
 
+#define ZERO (Vector2) {0, 0}
 #define CENTER (Vector2) {(float) WIDTH/2, (float) HEIGHT/2}
 
 #define COLOR_BLACK (Color) {19, 19, 19, 255}
