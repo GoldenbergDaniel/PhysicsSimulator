@@ -12,5 +12,6 @@
 #define COLOR_WHITE (Color) {236, 236, 236, 255}
 #define COLOR_RED (Color) {229, 78, 48, 255}
 #define COLOR_BLUE (Color) {55, 107, 186, 255}
+#define COLOR_GREEN (Color) {117, 204, 40, 255}
 
 #endif

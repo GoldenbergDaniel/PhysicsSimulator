@@ -1,6 +1,6 @@
 #include "raylib.h"
 
-#include "game.h"
+#include "simulation.h"
 #include "game_time.h"
 
 #include "Utility/init.h"
