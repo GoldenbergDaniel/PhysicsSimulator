@@ -1,9 +1,9 @@
 #include "raylib.h"
+
 #include "game_time.h"
-
-#include <stdio.h>
-
 #include "./Utility/init.h"
+#include "./Objects/ground_check.h"
+#include "./Objects/object.h"
 #include "./Utility/collision.h"
 
 const float gravity = -9.81f;
@@ -11,54 +11,63 @@ const float gravity = -9.81f;
 //Object *circle = &(struct Object) {15, 1, ZERO, ZERO, ZERO, ZERO, "circle"};
 
 Object *square1 = &(Object) {30, 1, ZERO, ZERO, ZERO, ZERO, "square", COLOR_BLUE};
-Object *square2 = &(Object) {30, 1, ZERO , ZERO, ZERO, ZERO, "square", COLOR_RED};
+Object *square2 = &(Object) {30, 1, ZERO, ZERO, ZERO, ZERO, "square", COLOR_BLUE};
 
-Object *shapeList[2];
+Object *objectList[2];
 
 void start()
 {
-    shapeList[0] = square1;
-    shapeList[1] = square2;
+    objectList[0] = square1;
+    objectList[1] = square2;
 
-    square1->position = (Vector2) {50, 50};
-    square2->position = (Vector2) {WIDTH-50, 50};
+    square1->position = (Vector2) {100, 100};
+    square2->position = (Vector2) {WIDTH-100, 100};
 
-    square1->netExternalForces = (Vector2) {100, 0};
-    square2->netExternalForces = (Vector2) {-100, 0};
+    square1->netExternalForces = (Vector2) {150, 100};
+    square2->netExternalForces = (Vector2) {-150, 100};
 }
 
 void update(GameTime *gameTime)
 {
     if (gameTime->totalElapsedTime > 0.25f)
     {
-        if (RectToRectCollision(square1, square2, gameTime))
+        for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
         {
-            printf("collision!\n");
-            square2->color = COLOR_GREEN;
+            for (int j = 0; j < (sizeof(objectList) / sizeof(&objectList[0])); j++)
+            {
+                if (j != i)
+                {
+                    if (RectToRectCollision(objectList[i], objectList[j], gameTime))
+                    {
+                        objectList[j]->color = COLOR_RED;
+                    }
+                    else
+                    {
+                        objectList[j]->color = COLOR_BLUE;
+                    }
+                }
+            }
         }
 
-        for (int i = 0; i < (sizeof(shapeList) / sizeof(&shapeList[0])); i++)
+        for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
         {
-            updatePosition(shapeList[i], gravity, gameTime);
+            updateObject(objectList[i], gravity, gameTime);
         }
     }
 }
 
 void draw()
 {
-    DrawText(TextFormat("%.2f", square1->position.x), WIDTH-70, 50, 20, COLOR_BLACK);
-    DrawText(TextFormat("%.2f", square2->position.x), WIDTH-70, 70, 20, COLOR_RED);
-    DrawText(TextFormat("%.2f", square1->position.y), WIDTH-70, 90, 20, COLOR_BLACK);
-    DrawText(TextFormat("%.2f", square2->position.y), WIDTH-70, 120, 20, COLOR_RED);
+    BeginDrawing();
 
     DrawRectangleV((Vector2) {0, HEIGHT-30}, (Vector2) {WIDTH, 30}, COLOR_BLACK);
 
-    for (int i = 0; i < (sizeof(shapeList) / sizeof(&shapeList[0])); i++)
+    for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
     {
-        drawShape(shapeList[i]);
+        drawObject(objectList[i]);
     }
 
-    DrawRectangleV(square2->position, (Vector2) {square2->size, square2->size}, square2->color);
-
     ClearBackground(COLOR_WHITE);
+
+    EndDrawing();
 }

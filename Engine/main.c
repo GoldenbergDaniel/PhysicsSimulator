@@ -1,11 +1,13 @@
 #include "raylib.h"
 
-#include "simulation.h"
 #include "game_time.h"
+#include "simulation.h"
 
 #include "Utility/init.h"
 
 #include <time.h>
+
+#include "stdio.h"
 
 int main()
 {
@@ -40,10 +42,7 @@ int main()
             totalTimeSinceUpdate = 0;
 
             update(&gameTime);
-
-            BeginDrawing();
             draw();
-            EndDrawing();
         }
     }
 

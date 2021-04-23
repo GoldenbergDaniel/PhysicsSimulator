@@ -1,5 +1,5 @@
-#ifndef PHYSICSSIMULATOR_CIRCLE_H
-#define PHYSICSSIMULATOR_CIRCLE_H
+#ifndef PHYSICSSIMULATOR_OBJECT_H
+#define PHYSICSSIMULATOR_OBJECT_H
 
 #include <string.h>
 
@@ -15,24 +15,14 @@ typedef struct Object
     Color color;
 } Object;
 
-//float getCenterOfMass(Shape *shape)
-//{
-//    if (strcmp(shape->type, "circle") == 0)
-//    {
-//        return shape->size;
-//    }
-//
-//    return shape->size;
-//}
-
-void updatePosition(Object *obj, float gravity, GameTime* gameTime)
+void updateObject(Object *obj, float gravity, GameTime* gameTime)
 {
     obj->acceleration.x = obj->netExternalForces.x / obj->mass;
     obj->acceleration.y = -(obj->netExternalForces.y / obj->mass + gravity);
 
     obj->netExternalForces = ZERO;
 
-    if (obj->position.x + (obj->velocity.x * gameTime->deltaTime) < WIDTH - obj->size + (obj->velocity.x * gameTime->deltaTime))
+    if (obj->position.x + obj->velocity.x * gameTime->deltaTime < WIDTH - obj->size)
     {
         obj->velocity.x += obj->acceleration.x;
         obj->position.x += obj->velocity.x * gameTime->deltaTime;
@@ -43,7 +33,7 @@ void updatePosition(Object *obj, float gravity, GameTime* gameTime)
         obj->velocity.x = 0;
     }
 
-    if (obj->position.y + (obj->velocity.y * gameTime->deltaTime) < (HEIGHT - 30) - obj->size + (obj->velocity.y * gameTime->deltaTime))
+    if (obj->position.y + (obj->velocity.y * gameTime->deltaTime) < HEIGHT - 30 - obj->size)
     {
         obj->velocity.y += obj->acceleration.y;
         obj->position.y += obj->velocity.y * gameTime->deltaTime;
@@ -55,7 +45,7 @@ void updatePosition(Object *obj, float gravity, GameTime* gameTime)
     }
 }
 
-void drawShape(Object *obj)
+void drawObject(Object *obj)
 {
     if (strcmp(obj->type, "circle") == 0)
     {

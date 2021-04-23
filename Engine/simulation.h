@@ -1,7 +1,5 @@
-#ifndef RAYTEMPLATEC_GAME_H
-#define RAYTEMPLATEC_GAME_H
-
-#include "game_time.h"
+#ifndef RAYTEMPLATEC_SIMULATION_H
+#define RAYTEMPLATEC_SIMULATION_H
 
 void start();
 void update(GameTime *gameTime);
