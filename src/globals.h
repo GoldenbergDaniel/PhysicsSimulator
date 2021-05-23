@@ -1,5 +1,8 @@
-#ifndef EXAMPLE_INIT_H
-#define EXAMPLE_INIT_H
+#ifndef PHYSICSSIMULATOR_GLOBALS_H
+#define PHYSICSSIMULATOR_GLOBALS_H
+
+#include "raylib.h"
+#include "game_time.h"
 
 #define TITLE "Physics Simulator"
 #define WIDTH (float) 800
@@ -11,7 +14,9 @@
 #define COLOR_BLACK (Color) {19, 19, 19, 255}
 #define COLOR_WHITE (Color) {236, 236, 236, 255}
 #define COLOR_RED (Color) {229, 78, 48, 255}
-#define COLOR_GREEN (Color) {117, 204, 40, 255}
+#define COLOR_GREEN (Color) {100, 160, 60, 255}
 #define COLOR_BLUE (Color) {55, 107, 186, 255}
+
+#define GRAVITY -9.81f
 
 #endif

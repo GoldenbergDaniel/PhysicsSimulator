@@ -1,13 +1,7 @@
-#include "raylib.h"
-
-#include "game_time.h"
+#include "globals.h"
 #include "simulation.h"
 
-#include "Utility/init.h"
-
 #include <time.h>
-
-#include "stdio.h"
 
 int main()
 {
@@ -27,7 +21,7 @@ int main()
 
     while (!WindowShouldClose())
     {
-        float elapsedTime = clock();
+        float elapsedTime = (float) clock();
 
         totalTimeElapsed = (float) elapsedTime / CLOCKS_PER_SEC;
         deltaTime = totalTimeElapsed - previousTimeElapsed;
@@ -42,7 +36,10 @@ int main()
             totalTimeSinceUpdate = 0;
 
             update(&gameTime);
+
+            BeginDrawing();
             draw();
+            EndDrawing();
         }
     }
 
