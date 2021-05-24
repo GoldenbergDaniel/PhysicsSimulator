@@ -12,7 +12,7 @@ void object_update(Object *this, GameTime* gameTime)
 
     this->netExternalForces = ZERO;
 
-    float adjustedPosX = this->position.x + ((this->velocity.x * this->acceleration.x) + gameTime->deltaTime);
+    float adjustedPosX = this->position.x + ((this->velocity.x + this->acceleration.x) * gameTime->deltaTime);
     float adjustedPosY = this->position.y + ((this->velocity.y + this->acceleration.y) * gameTime->deltaTime);
 
     if (adjustedPosX < WIDTH - this->size && adjustedPosX > 0)

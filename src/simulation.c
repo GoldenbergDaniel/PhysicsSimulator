@@ -7,13 +7,16 @@ Object *square1 = &(Object) {70, 1, {100, 200}, ZERO, ZERO, ZERO, "square", COLO
 Object *square2 = &(Object) {40, 1, {WIDTH-100, 250}, ZERO, ZERO, ZERO, "square", COLOR_GREEN};
 
 Object *objectList[2];
+int objectCount;
 
 void start()
 {
     objectList[0] = square1;
     objectList[1] = square2;
 
-    for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
+    objectCount = sizeof(objectList) / sizeof(&objectList[0]);
+
+    for (int i = 0; i < objectCount; i++)
     {
         object_start(objectList[i]);
     }
@@ -27,9 +30,9 @@ void update(GameTime *gameTime)
     if (gameTime->totalElapsedTime > 0.25f)
     {
         // Collision
-        for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
+        for (int i = 0; i < objectCount; i++)
         {
-            for (int j = 0; j < (sizeof(objectList) / sizeof(&objectList[0])); j++)
+            for (int j = 0; j < objectCount; j++)
             {
                 if (i != j)
                 {
@@ -46,7 +49,7 @@ void update(GameTime *gameTime)
         }
 
         // Update
-        for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
+        for (int i = 0; i < objectCount; i++)
         {
             object_update(objectList[i], gameTime);
         }
@@ -57,7 +60,7 @@ void draw()
 {
     DrawRectangleV((Vector2) {0, HEIGHT-30}, (Vector2) {WIDTH, 30}, COLOR_BLACK);
 
-    for (int i = 0; i < (sizeof(objectList) / sizeof(&objectList[0])); i++)
+    for (int i = 0; i < objectCount; i++)
     {
         object_draw(objectList[i]);
     }
