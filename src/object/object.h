@@ -12,13 +12,14 @@ typedef struct Object
     Vector2 velocity;
     Vector2 acceleration;
     Vector2 netExternalForces;
-    char type[16];
     Color color;
     Color currColor;
+    bool isActive;
 } Object;
 
 void object_start(Object *this);
-void object_update(Object *this, GameTime* gameTime);
+void object_update(Object *this);
 void object_draw(Object *this);
+void object_destroy(Object *this);
 
 #endif

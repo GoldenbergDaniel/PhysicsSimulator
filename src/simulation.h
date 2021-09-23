@@ -1,8 +1,5 @@
-#ifndef RAYTEMPLATEC_SIMULATION_H
-#define RAYTEMPLATEC_SIMULATION_H
+#pragma once
 
 void start();
-void update(GameTime *gameTime);
+void update();
 void draw();
-
-#endif

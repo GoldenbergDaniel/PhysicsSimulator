@@ -1,4 +1,5 @@
-/.idea
+/build
+/build_debug
 /cmake-build-debug
-/bin/PhysicsSimulator
-.DS_Store
+/.vscode
+*.DS_Store

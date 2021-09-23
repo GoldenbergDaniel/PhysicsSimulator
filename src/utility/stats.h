@@ -1,9 +1,8 @@
-#ifndef PHYSICSSIMULATOR_STATS_H
-#define PHYSICSSIMULATOR_STATS_H
+#pragma once
 
-void displayStat(float stat, Vector2 *pos, Color color)
+#include "../globals.h"
+
+void displayStat(float stat, v2 *pos, Color color)
 {
-    DrawText(TextFormat("%.2f", stat), (int) pos->x, (int) pos->y, 20, color);
+    DrawText(TextFormat("%.2f", stat), (i32) pos->x, (i32) pos->y, 20, color);
 }
-
-#endif

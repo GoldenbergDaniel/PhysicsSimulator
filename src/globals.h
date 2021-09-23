@@ -1,8 +1,6 @@
-#ifndef PHYSICSSIMULATOR_GLOBALS_H
-#define PHYSICSSIMULATOR_GLOBALS_H
+#pragma once
 
 #include "raylib.h"
-#include "game_time.h"
 
 #define TITLE "Physics Simulator"
 #define WIDTH (float) 800
@@ -19,4 +17,19 @@
 
 #define GRAVITY -9.81f
 
-#endif
+#define NIL 0
+
+typedef unsigned char u8;
+typedef short unsigned int u16;
+typedef unsigned int u32;
+typedef long unsigned int u64;
+typedef char i8;
+typedef short int i16;
+typedef int i32;
+typedef long int i64;
+typedef float f32;
+typedef long f64;
+typedef Vector2 v2;
+typedef Vector3 v3;
+typedef Vector4 v4;
+typedef Matrix m4;

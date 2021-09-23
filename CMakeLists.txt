@@ -3,8 +3,6 @@ project(PhysicsSimulator)
 
 set(CMAKE_C_STANDARD 11)
 
-find_package(raylib 3.0 QUIET)
-
 add_executable(${PROJECT_NAME}
         src/main.c
         src/simulation.c
@@ -16,4 +14,5 @@ if (APPLE)
     target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
 endif()
 
+find_package(raylib 3.0 QUIET)
 target_link_libraries(${PROJECT_NAME} raylib)
