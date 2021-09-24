@@ -1,19 +1,34 @@
 #include "object.h"
 
+Object object_new(f32 size, f32 mass, v2 pos, v2 force, Color color)
+{
+	Object object = {
+		size, 
+		mass, 
+		pos, 
+		ZERO, 
+		ZERO, 
+		force, 
+		color 
+	};
+
+	return object;
+}
+
 void object_start(Object *this)
 {
-	this->isActive = true;
-    this->currColor = this->color;
+	this->is_active = true;
+    this->curr_color = this->color;
 }
 
 void object_update(Object *this)
 {
-	if (this->isActive) 
+	if (this->is_active) 
 	{
-		this->acceleration.x = this->netExternalForces.x / this->mass;
-	    this->acceleration.y = -(this->netExternalForces.y / this->mass + GRAVITY);
+		this->acceleration.x = this->net_external_forces.x / this->mass;
+	    this->acceleration.y = -(this->net_external_forces.y / this->mass + GRAVITY);
 	
-	    this->netExternalForces = ZERO;
+	    this->net_external_forces = ZERO;
 	
 	    f32 adjustedPosX = this->position.x + ((this->velocity.x + this->acceleration.x) * GetFrameTime());
 	    f32 adjustedPosY = this->position.y + ((this->velocity.y + this->acceleration.y) * GetFrameTime());
@@ -38,7 +53,7 @@ void object_update(Object *this)
 	        }
 	    }
 	
-	    if (adjustedPosY < HEIGHT - 30 - this->size)
+	    if (adjustedPosY < HEIGHT - this->size - 30)
 	    {
 	        this->velocity.y += this->acceleration.y;
 	        this->position.y += this->velocity.y * GetFrameTime();
@@ -54,13 +69,13 @@ void object_update(Object *this)
 
 void object_draw(Object *this)
 {
-	if (this->isActive)
+	if (this->is_active)
 	{
-		DrawRectangleV(this->position, (v2) {this->size, this->size}, this->currColor);	
+		DrawRectangleV(this->position, (v2) {this->size, this->size}, this->curr_color);	
 	}
 }
 
 void object_destroy(Object *this)
 {
-	this->isActive = false;
+	this->is_active = false;
 }

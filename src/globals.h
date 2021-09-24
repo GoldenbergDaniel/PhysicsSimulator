@@ -3,11 +3,11 @@
 #include "raylib.h"
 
 #define TITLE "Physics Simulator"
-#define WIDTH (float) 800
-#define HEIGHT (float) 450
+#define WIDTH (f32) 800
+#define HEIGHT (f32) 450
 
-#define ZERO (Vector2) {0, 0}
-#define CENTER (Vector2) {(float) WIDTH/2, (float) HEIGHT/2}
+#define ZERO (v2) {0, 0}
+#define CENTER (v2) {(f32) WIDTH/2, (f32) HEIGHT/2}
 
 #define COLOR_BLACK (Color) {19, 19, 19, 255}
 #define COLOR_WHITE (Color) {236, 236, 236, 255}
