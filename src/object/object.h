@@ -1,5 +1,4 @@
-#ifndef PHYSICSSIMULATOR_OBJECT_H
-#define PHYSICSSIMULATOR_OBJECT_H
+#pragma once
 
 #include "../globals.h"
 
@@ -21,5 +20,3 @@ void object_start(Object *this);
 void object_update(Object *this);
 void object_draw(Object *this);
 void object_destroy(Object *this);
-
-#endif
