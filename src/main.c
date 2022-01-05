@@ -3,29 +3,48 @@
 #include "globals.h"
 
 #include "./object/object.h"
+#include "./storage/storage.h"
 #include "./utility/collision.h"
 
 Object square1;
 Object square2;
-Object square3;
+Storage storage;
 
-const i32 object_count = 3;
+const i32 object_count = 2;
 Object *object_list[object_count];
 
 void start()
 {
-    square1 = object_new(70, 1, (v2) {100, 200}, (v2) {800, 300}, COLOR_BLUE);
-    square2 = object_new(40, 1, (v2) {WIDTH-100, 250}, (v2) {-800, 300}, COLOR_GREEN);
-    square3 = object_new(50, 1, (v2) {WIDTH/2, 100}, (v2) {0, 0}, COLOR_RED);
+    // Square1 Input
+    printf("Force applied on right object (x y): ");
+    scanf("%f %f", &storage.external_force1.x, &storage.external_force1.y);
+    printf("Mass of right object: ");
+    scanf("%f", &storage.mass1);
+
+    // Square2 Input
+    printf("Force applied on left object (x y): ");
+    scanf("%f %f", &storage.external_force2.x, &storage.external_force2.y);
+    printf("Mass of left object: ");
+    scanf("%f", &storage.mass2);
+
+    square1 = object_new(
+        75, 
+        storage.mass1, 
+        (v2) {200, 200},
+        (v2) {storage.external_force1.x, storage.external_force1.y}, 
+        COLOR_BLUE
+    );
+
+    square2 = object_new(
+        100, 
+        storage.mass2, 
+        (v2) {WIDTH-200, 200},
+        (v2) {storage.external_force2.x, storage.external_force2.y},
+        COLOR_GREEN
+    );
 
     object_list[0] = &square1;
     object_list[1] = &square2;
-    object_list[2] = &square3;
-
-    for (u8 i = 0; i < object_count; i++)
-    {
-        object_start(object_list[i]);
-    }
 }
 
 void update()
@@ -39,29 +58,21 @@ void update()
         }
 
         // Collision
-        for (u8 i = 0; i < object_count; i++)
+        if (collision(&square1, &square2))
         {
-            for (u8 j = 0; j < object_count; j++)
-            {
-                if (i != j)
-                {
-                    if (collision(object_list[i], object_list[j]))
-                    {
-                        object_list[i]->velocity = recalculate_velocity(object_list[i]);
-                    }
-                    else
-                    {
-                        object_list[i]->curr_color = object_list[i]->color;
-                    }
-                }
-            }
+            recalculate_velocities(&square1, &square2);
         }
     }
 }
 
 void draw()
 {
-    DrawRectangleV((v2) {0, HEIGHT-30}, (v2) {WIDTH, 30}, COLOR_BLACK);
+    DrawRectangleV((v2) {0, HEIGHT-GROUND_OFFSET}, (v2) {WIDTH, GROUND_OFFSET}, COLOR_BLACK);
+
+    i8 buffer[20];
+    sprintf(buffer, "%f", storage.external_force1.x);
+
+    DrawText(buffer, 100, 100, 20, BLACK);
 
     for (u8 i = 0; i < object_count; i++)
     {
@@ -73,17 +84,19 @@ void draw()
 
 int main()
 {
+    start();
+
     SetConfigFlags(FLAG_VSYNC_HINT);
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
 
-    InitWindow(WIDTH, HEIGHT, TITLE);
+    SetTargetFPS(60);
 
-    start();
+    InitWindow(WIDTH, HEIGHT, TITLE);
 
     while (!WindowShouldClose())
     {
         update();
-        
+    
         BeginDrawing();
         draw();
         EndDrawing();

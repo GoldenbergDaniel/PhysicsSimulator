@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "../object/object.h"
 #include "collision.h"
@@ -15,11 +16,22 @@ bool collision(Object *obj1, Object *obj2)
            range_intersect(obj1->position.y, obj1->position.y + obj1->size, obj2->position.y, obj2->position.y + obj2->size);
 }
 
-v2 recalculate_velocity(Object *obj1)
+void recalculate_velocities(Object *obj1, Object *obj2)
 {
-    v2 newVelocity;
-    newVelocity.x = -obj1->velocity.x * obj1->mass;
-    newVelocity.y = -obj1->velocity.y * obj1->mass;
+    printf("Initial v1: %f, %f \n", obj1->velocity.x, obj1->velocity.y);
+    printf("Initial v2: %f, %f \n", obj2->velocity.x, obj1->velocity.y);
 
-    return newVelocity;
+    v2 vel1_f;
+    vel1_f.x = (obj1->mass * obj1->velocity.x + 2 * obj2->mass * obj2->velocity.x - obj2->mass * obj1->velocity.x) / (obj1->mass + obj2->mass);
+    vel1_f.y = obj1->velocity.y;
+
+    v2 vel2_f;
+    vel2_f.x = (obj1->velocity.x - obj2->velocity.x + vel1_f.x);
+    vel2_f.y = obj2->velocity.y;
+
+    printf("Final v1: %f, %f \n", vel1_f.x, vel1_f.y);
+    printf("Final v2: %f, %f \n", vel2_f.x, vel1_f.y);
+
+    obj1->velocity = vel1_f;
+    obj2->velocity = vel2_f;
 }

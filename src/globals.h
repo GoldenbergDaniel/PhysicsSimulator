@@ -6,6 +6,8 @@
 #define WIDTH (f32) 800
 #define HEIGHT (f32) 450
 
+#define GROUND_OFFSET 50
+
 #define ZERO (v2) {0, 0}
 #define CENTER (v2) {(f32) WIDTH/2, (f32) HEIGHT/2}
 
