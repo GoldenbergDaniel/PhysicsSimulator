@@ -3,43 +3,48 @@
 #include "globals.h"
 
 #include "./object/object.h"
-#include "./storage/storage.h"
-#include "./utility/collision.h"
+#include "./collision/collision.h"
 
 Object square1;
 Object square2;
-Storage storage;
 
 const i32 object_count = 2;
 Object *object_list[object_count];
 
+// Start program
 void start()
 {
-    // Square1 Input
-    printf("Force applied on right object (x y): ");
-    scanf("%f %f", &storage.external_force1.x, &storage.external_force1.y);
-    printf("Mass of right object: ");
-    scanf("%f", &storage.mass1);
+    // Input variables
+    v2 external_force1;
+    v2 external_force2;
+    f32 mass1;
+    f32 mass2;
 
-    // Square2 Input
+    // Square1 input
+    printf("Force applied on right object (x y): ");
+    scanf("%f %f", &external_force1.x, &external_force1.y);
+    printf("Mass of right object: ");
+    scanf("%f", &mass1);
+
+    // Square2 input
     printf("Force applied on left object (x y): ");
-    scanf("%f %f", &storage.external_force2.x, &storage.external_force2.y);
+    scanf("%f %f", &external_force2.x, &external_force2.y);
     printf("Mass of left object: ");
-    scanf("%f", &storage.mass2);
+    scanf("%f", &mass2);
 
     square1 = object_new(
         75, 
-        storage.mass1, 
+        mass1, 
         (v2) {200, 200},
-        (v2) {storage.external_force1.x, storage.external_force1.y}, 
+        (v2) {external_force1.x, external_force1.y}, 
         COLOR_BLUE
     );
 
     square2 = object_new(
         100, 
-        storage.mass2, 
+        mass2, 
         (v2) {WIDTH-200, 200},
-        (v2) {storage.external_force2.x, storage.external_force2.y},
+        (v2) {external_force2.x, external_force2.y},
         COLOR_GREEN
     );
 
@@ -47,11 +52,12 @@ void start()
     object_list[1] = &square2;
 }
 
+// Update physics
 void update()
 {
     if (GetTime() > 0.25f)
     {
-        // Update
+        // Logic
         for (u8 i = 0; i < object_count; i++)
         {
             object_update(object_list[i]);
@@ -65,20 +71,23 @@ void update()
     }
 }
 
+// Draw to window
 void draw()
 {
+    // Ground
     DrawRectangleV((v2) {0, HEIGHT-GROUND_OFFSET}, (v2) {WIDTH, GROUND_OFFSET}, COLOR_BLACK);
 
-    i8 buffer[20];
-    sprintf(buffer, "%f", storage.external_force1.x);
+    // Text
+    DrawText(TextFormat("Vel1: %f", object_get_velocity(object_list[0]).x), 100, 30, 20, BLACK);
+    DrawText(TextFormat("Vel2: %f", object_get_velocity(object_list[1]).x), 600, 30, 20, BLACK);
 
-    DrawText(buffer, 100, 100, 20, BLACK);
-
+    // Objects
     for (u8 i = 0; i < object_count; i++)
     {
         object_draw(object_list[i]);
     }
 
+    // Background
     ClearBackground(COLOR_WHITE);
 }
 
@@ -86,6 +95,7 @@ int main()
 {
     start();
 
+    // Config program arguments
     SetConfigFlags(FLAG_VSYNC_HINT);
     SetConfigFlags(FLAG_WINDOW_HIGHDPI);
 
@@ -93,6 +103,7 @@ int main()
 
     InitWindow(WIDTH, HEIGHT, TITLE);
 
+    // Game loop
     while (!WindowShouldClose())
     {
         update();

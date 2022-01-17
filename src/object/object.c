@@ -17,14 +17,17 @@ Object object_new(f32 size, f32 mass, v2 pos, v2 force, Color color)
 
 void object_update(Object *this)
 {
+	// Update acceleration
 	this->acceleration.x = this->external_force.x / this->mass;
 	this->acceleration.y = -(this->external_force.y / this->mass + GRAVITY);
 
 	this->external_force = ZERO;
 
+	// Update position
 	f32 adjustedPosX = this->position.x + ((this->velocity.x + this->acceleration.x) * GetFrameTime());
 	f32 adjustedPosY = this->position.y + ((this->velocity.y + this->acceleration.y) * GetFrameTime());
 
+	// Clamp position within width of window
 	if (adjustedPosX < WIDTH - this->size && adjustedPosX > 0)
 	{
 		this->velocity.x += this->acceleration.x;
@@ -45,6 +48,7 @@ void object_update(Object *this)
 		}
 	}
 
+	// Clamp position within height of window
 	if (adjustedPosY < HEIGHT - this->size - GROUND_OFFSET)
 	{
 		this->velocity.y += this->acceleration.y;
@@ -61,4 +65,9 @@ void object_update(Object *this)
 void object_draw(Object *this)
 {
 	DrawRectangleV(this->position, (v2) {this->size, this->size}, this->color);
+}
+
+v2 object_get_velocity(Object *this)
+{
+	return this->velocity;
 }

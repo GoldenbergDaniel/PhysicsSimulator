@@ -2,6 +2,7 @@
 
 #include "../globals.h"
 
+// Object type
 typedef struct Object
 {
     f32 size;
@@ -13,7 +14,14 @@ typedef struct Object
     Color color;
 } Object;
 
+// Create new object
 Object object_new(f32 size, f32 mass, v2 pos, v2 force, Color color);
+
+// Update object
 void object_update(Object *this);
+
+// Draw object
 void object_draw(Object *this);
-void object_destroy(Object *this);
+
+// Get velocity of object
+v2 object_get_velocity(Object *this);

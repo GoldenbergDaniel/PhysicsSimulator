@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(${PROJECT_NAME}
         src/main.c
-        src/utility/collision.c
+        src/collision/collision.c
         src/object/object.c)
 
 find_package(raylib 3.0 QUIET)
