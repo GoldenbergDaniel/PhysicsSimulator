@@ -8,7 +8,7 @@
 Object square1;
 Object square2;
 
-const i32 object_count = 2;
+const i8 object_count = 2;
 Object *object_list[object_count];
 
 // Start program
@@ -17,25 +17,31 @@ void start()
     // Input variables for Square1
     v2 external_force1;
     f32 mass1;
+    f32 size1;
 
     // Input variables for Square2
     v2 external_force2;
     f32 mass2;
+    f32 size2;
 
     // Square1 input
     printf("Force applied on right object (-1000<>1000) (x y): ");
     scanf("%f %f", &external_force1.x, &external_force1.y);
     printf("Mass of right object (0.1<>100): ");
     scanf("%f", &mass1);
+    printf("Size of left object (10<>200): ");
+    scanf("%f", &size1);
 
     // Square2 input
     printf("Force applied on left object (-1000<>1000) (x y): ");
     scanf("%f %f", &external_force2.x, &external_force2.y);
     printf("Mass of left object (0.1<>100): ");
     scanf("%f", &mass2);
+    printf("Size of left object (10<>200): ");
+    scanf("%f", &size2);
 
     square1 = object_new(
-        75, 
+        size1, 
         mass1, 
         (v2) {200, 200},
         (v2) {external_force1.x, external_force1.y}, 
@@ -43,7 +49,7 @@ void start()
     );
 
     square2 = object_new(
-        100, 
+        size2, 
         mass2, 
         (v2) {WIDTH-200, 200},
         (v2) {external_force2.x, external_force2.y},

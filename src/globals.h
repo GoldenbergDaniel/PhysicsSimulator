@@ -10,7 +10,7 @@
 #define GRAVITY -9.81f
 #define GROUND_OFFSET 50
 
-// Colos
+// Colors
 #define COLOR_BLACK (Color) {19, 19, 19, 255}
 #define COLOR_WHITE (Color) {236, 236, 236, 255}
 #define COLOR_GREEN (Color) {100, 160, 60, 255}
@@ -31,6 +31,3 @@ typedef long int i64;
 typedef float f32;
 typedef double f64;
 typedef Vector2 v2;
-typedef Vector3 v3;
-typedef Vector4 v4;
-typedef Matrix m4;
