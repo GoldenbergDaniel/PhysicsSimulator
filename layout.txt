@@ -1,0 +1,24 @@
+object:
+ - Object object_new(f32 size, f32 mass, v2 pos, v2 force, Color color);
+ - void object_update(Object *this);
+ - void object_draw(Object *this);
+ - v2 object_get_velocity(Object *this);
+
+collision:
+ - bool range_intersect(f32 min1, f32 max1, f32 min2, f32 max2);
+ - bool collision(Object *obj1, Object *obj2);
+ - void recalculate_velocities(Object *obj1, Object *obj2);
+
+main:
+ - int main()
+ - void start()
+ - void update()
+ - void draw()
+
+
+Input:
+    Force applied on right object (-1000<>1000) (x y):
+    Mass of right object (0.1<>100):
+
+    Force applied on left object (-1000<>1000) (x y):
+    Mass of left object (0.1<>100):

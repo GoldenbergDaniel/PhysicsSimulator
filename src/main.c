@@ -14,22 +14,24 @@ Object *object_list[object_count];
 // Start program
 void start()
 {
-    // Input variables
+    // Input variables for Square1
     v2 external_force1;
-    v2 external_force2;
     f32 mass1;
+
+    // Input variables for Square2
+    v2 external_force2;
     f32 mass2;
 
     // Square1 input
-    printf("Force applied on right object (x y): ");
+    printf("Force applied on right object (-1000<>1000) (x y): ");
     scanf("%f %f", &external_force1.x, &external_force1.y);
-    printf("Mass of right object: ");
+    printf("Mass of right object (0.1<>100): ");
     scanf("%f", &mass1);
 
     // Square2 input
-    printf("Force applied on left object (x y): ");
+    printf("Force applied on left object (-1000<>1000) (x y): ");
     scanf("%f %f", &external_force2.x, &external_force2.y);
-    printf("Mass of left object: ");
+    printf("Mass of left object (0.1<>100): ");
     scanf("%f", &mass2);
 
     square1 = object_new(
