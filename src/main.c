@@ -86,8 +86,8 @@ void draw()
     DrawRectangleV((v2) {0, HEIGHT-GROUND_OFFSET}, (v2) {WIDTH, GROUND_OFFSET}, COLOR_BLACK);
 
     // Text
-    DrawText(TextFormat("Vel1: %f", object_get_velocity(object_list[0]).x), 100, 30, 20, BLACK);
-    DrawText(TextFormat("Vel2: %f", object_get_velocity(object_list[1]).x), 600, 30, 20, BLACK);
+    DrawText(TextFormat("Blue's velocity: %f", object_get_velocity(object_list[0]).x), 100, 30, 20, BLACK);
+    DrawText(TextFormat("Green's velocity: %f", object_get_velocity(object_list[1]).x), 500, 30, 20, BLACK);
 
     // Objects
     for (u8 i = 0; i < object_count; i++)
