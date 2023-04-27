@@ -1,7 +1,8 @@
-run:
-	./build/PhysicsSimulator
+all:
+	cc src/collision/collision.c src/object/object.c src/main.c -lraylib -o build/PhysicsSim
+	./build/PhysicsSim
 compile:
-	cmake --build ./build
+	cc src/collision/collision.c src/object/object.c src/main.c -lraylib -o build/PhysicsSim
 test:
-	cmake --build ./build
-	./build/PhysicsSimulator
+	cc src/collision/collision.c src/object/object.c src/main.c -lraylib -o build/PhysicsSim
+	./build/PhysicsSim
